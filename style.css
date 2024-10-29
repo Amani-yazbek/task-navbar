@@ -1,7 +1,9 @@
 * {
     font-family:'Courier New', Courier, monospace;
 }
-nav ul {
+
+/* make elements horizontally */
+.content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -9,23 +11,28 @@ nav ul {
     justify-content: space-around;
     align-content: center;
 }
-nav img {
-    width: 1em;
-    height: 1em;
-}
 li {
     padding: 10px;
-}
-hr {
-    color: #EEEEEE;
-    width: 95%;
-    margin: auto;
 }
 li:hover {
     border-radius: 20px;
     background-color: #EEEEEE;
     text-decoration: underline;
 }
+
+/* icon */
+nav img {
+    width: 1em;
+    height: 1em;
+}
+
+hr {
+    color: #EEEEEE;
+    width: 95%;
+    margin: auto;
+}
+
+/* The Box in the middle of page */
 .information {
     display: flex;
     flex-direction: column;
@@ -33,6 +40,7 @@ li:hover {
     align-items: center;
     border: 2px solid #EEEEEE;
     border-radius: 50px;
+    min-width: 100px;
     width: 50vw;
     height: 40vh;
     box-shadow: 2px 2px 10px 2px rgb(19, 17, 17);
@@ -46,14 +54,20 @@ li:hover {
     font-size: 20px;
     color: black;
 }
+
+/* Box changes on hover */
 .information:hover span {
     display: block;
 }
-
 .information:hover p {
-    color:rgb(97, 199, 202);
+    color:rgb(237, 146, 181);
+}
+.information:hover {
+    box-shadow: 2px 2px 10px 2px rgb(237, 146, 181);
+    border: none;
 }
 
+/* links to social media accounts */
 .social-links{
     display: flex;
     width: 100%;
@@ -61,8 +75,32 @@ li:hover {
     justify-content: space-evenly;
     margin-top: 20px;
 }
-
-.social-link {
+.social-icon {
     height: 18px;
     width: 18px;
+}
+
+/* changes on small screens */
+@media screen and (max-width: 480px){
+    .list{
+        position: relative;
+    }
+    /*By default, list is hidden */
+    .content {
+        display: none;
+        position: absolute;
+        list-style-type: none;
+        align-content: center;
+        cursor: pointer;
+        width: 150px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    /*display the list when hover on heart icon */
+    .list:hover+ .content {
+        display: block;
+    }
 }
